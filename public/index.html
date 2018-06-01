@@ -25,13 +25,22 @@
       color: black;
     }
 
+    .under-tien-text2 {
+      text-align: center;
+      position: absolute;
+      top: 45%;
+      left: 68%;
+      transform: translate(-50%, -50%);
+      color: black;
+    }
+
     .fa {
-      padding: 15px;
+      padding: 20px;
       font-size: 20px;
-      width: 30px;
+      width: 65px;
       text-align: center;
       text-decoration: none;
-      margin: 5px 2px;
+      margin: 10px 4px;
 
     }
 
@@ -39,7 +48,7 @@
       background: #007bb5;
       color: white;
       position: absolute;
-      bottom: 33%;
+      bottom: 30%;
       right: 0%;
       transform: translate(-50%, -50%);
     }
@@ -48,35 +57,180 @@
       background: #3B5998;
       color: white;
       position: absolute;
-      bottom: 33%;
+      bottom: 30%;
       right: 5%;
       transform: translate(-50%, -50%);
     }
 
+    section {
+      background: lightyellow;
+      color: black;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #474e5d;
+      font-family: Helvetica, sans-serif;
+    }
+
+    /* The actual timeline (the vertical ruler) */
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* The actual timeline (the vertical ruler) */
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    /* Container around content */
+
+    .container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    /* The circles on the timeline */
+
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid #FF9F55;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* Place the container to the left */
+
+    .left {
+      left: 0;
+    }
+
+    /* Place the container to the right */
+
+    .right {
+      left: 50%;
+    }
+
+    /* Add arrows to the left container (pointing right) */
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid white;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
+
+    /* Add arrows to the right container (pointing left) */
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    /* Fix the circle for containers on the right side */
+
+    .right::after {
+      left: -16px;
+    }
+
+    /* The actual content */
+
+    .content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+    }
+
+    /* Media queries - Responsive timeline on screens less than 600px wide */
+
+    @media screen and (max-width: 600px) {
+      /* Place the timelime to the left */
+      .timeline::after {
+        left: 31px;
+      }
+
+      /* Full-width containers */
+      .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      /* Make sure that all arrows are pointing leftwards */
+      .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Make sure all circles are at the same spot */
+      .left::after,
+      .right::after {
+        left: 15px;
+      }
+
+      /* Make all right containers behave like the left ones */
+      .right {
+        left: 0%;
+      }
+    }
   </style>
 </head>
 
 <body>
-
-
   <article>
-    <button class="tablink" onclick="openPage('Home', this,)">Home</button>
-    <button class="tablink" onclick="openPage('About-Me', this, 'green')" id="defaultOpen">About Me</button>
-    <button class="tablink" onclick="openPage('Work-History', this, 'blue')">Work History</button>
-    <button class="tablink" onclick="openPage('Contact-Me', this, 'orange')">Contact Me</button>
-    <div id="Home" class="tabcontent">
-
+    <header>
       <h1 style="font-size:50px" class="tien-text">Xin chào, I am Tien Nguyen Borland</h1>
       <p style="font-size:25px" class="under-tien-text">And I'm a Web Developer</p>
+      <p style="font-size:25px" class="under-tien-text2">Welcome to my Portfolio</p>
       <a href="https://www.linkedin.com/in/tien-borland-3b223265/" class="fa fa-linkedin" target="blank"></a>
       <a href="https://www.facebook.com/nguyen.tien.520" class="fa fa-facebook" target="blank"></a>
       <img src="https://lh3.googleusercontent.com/g_Pvd7qs0RTe0i-5JULdRsFl-T0g21bLZMT06iIWIWCtKU7MCkrYO6A0VvJw9Jm93kqBuBLYdhoBozXuIQPu6WuW6xDOeCM_dwi7FqAn6-uT9ZZww7flT84I26cq83Pn_ZIHxsSMwxDs59j-7v2nwr2zj3OZV992aXaurTsF5Qg95GDQuyPRNig-cixMHHI629j3Zj4vRDSvlBKXwxKL5Oz4HmkDCiU1MwfIyaUic3vYxhv1WLthdDkcNrAKT0c0JjpeDQ7jorgbgztsdZUqlROP9GoLPa1OKLM0RN_CV19MXog0WgZYfbNsu3-TfjEqziDBPBnU22DgW5qPDXfBxmUaEHknm-N34bUMvCPNzzWf4Ym0j-Uc6b-JLxIyrZZ-2_9lYcIQ7YvriaH9IZ-fVAhd8HwQUBbaWOjPConvAKZi42vf0c6S60kScNcNSjZ-epQjcNzdI5iJ_TepMlNt-7tB094NRrwvmj3wnm4oiz1c8kKcwab1mIFRwxet0TDaC6W_oBV95Kx2oyKzrZwYkJCGgp1j2eLJMqtpWxNhXlresqxQK4KSN4Xqa28Oc09eWXy_ASUYuFenKUvIyWpXIbrInSMVq92eYWLm2Q=w1440-h540-no"
-        alt="profilepic" style="width:100%">
-
+        alt="profilepic" style="width:100%" />
+    </header>
     </div>
 
-    <div id="About Me" class="tabcontent">
-      <h3>About Me</h3>
+    <section>
+      <hr>
+      <h2>About Me</h2>
       <p>
         <ul>Graduated from University of Minnesota in Healthcare Management</ul>
         <ul>Bilingual (Vietnamese/English)</ul>
@@ -86,19 +240,87 @@
         <ul>Working knowledge of Medical terminology, Clinical Best Practices, and Medicare/ M.edicaid with highly developed
           organizational skills and time management skills.</ul>
       </p>
-    </div>
+      <hr>
+    </section>
 
-    <div id="Work-History" class="tabcontent">
-      <h3>Work History</h3>
-      <p></p>
-    </div>
+    <section>
+      <hr>
+      <h2>Work History</h2>
+      </hr>
+    </section>
+    <div class="timeline">
+      <div class="container left">
+        <div class="content">
+          <h2>Summer 2018</h2>
+          <p> I started Coding Bootcamp from Helio Bootcamp (SLC, UT).
+            <img alt="heliologo" style="width: 90%" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEhUTExAVFRUXGBoYGRgYGRgWFxcWFx4aFhUVHRkYHSggGx0lHxcVITEiJSkrMC4uFx8zODMsNygtLisBCgoKDg0OGxAQGysmICUtLS0uMC0tLS01LTAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYCBAcDAf/EAE4QAAEDAgMDBggICgkFAQAAAAEAAgMEEQUSIQYxQRNRYXGBkQciMjRzobGyFCMzYnKCwdEVFiRCQ1KDkqLCF0RTVJPD0uHwY3Sjs+JV/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAEEBQMCBv/EADYRAQACAQIEBAMHAgYDAAAAAAABAgMEEQUSITETMkFRImGBFCMzQnGRoTSxFSRS0eHwJUNy/9oADAMBAAIRAxEAPwCkIkQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEHpBA6Q5WMc48zQXHuC83vWkb2nZMVm3aE1SbHVkn6MMHz3AeoXPqWdk4vpqfm3/RYrpck+jeGwkw8qeJp5vG+5cJ43T0pZ7+xz7wHYOb82eFx5vGH2FI43j9aTB9jt6TCPq9kayPXkc4+YQ71b/UrOLiumv+bb9ejnbS5K+iFljc05XNLSOBBB7ir9b1tG8Tu4TEx3Yr1tKBAQEBAQEBAQEBAQEBAQEBAQEBAQZwxOe4Na0ucTYAC5J5gF5vetI5rdITETM7QtVLszDTsEtdKG33RNOp6CRqepvesXJxHJntOPSxv81yunrSObLP0fKjbERjJSU7Imc5F3HpsNL9d1OPhM3nm1F5tKLarbpjjZBz4vVTmxmkcT+a0kfwssPUtCml0+LtER+v/LhOTJb1adTA9htIxzTa9nAg257Fd8dqWjem2zxaLb9WVNTyPvybHutqcgcbdeVMlscbc8x9SsWns3KXHKqE2bPILfmuOb+F91XyaLTZo3msfT/h0rmyU9ZTkO10c4yVtO17f12jUdNib9rSOpZ9+FXw/HprTHyl3jVVtG2SrCu2VZKzlqKXlWcWE+MOgHn6HAHrU4eJ2x28PVV2n39EX00Wjmx9VVc0gkEEEaEHQgjeCOC2omLRvEqcxO+z4pBAQEBAQEBAQEBAQEBAQEBAQe9FSPme2ONuZztw9pPMBzrnlzUxUm952iHqtJtO0LfNNDhLMkYEtU4eM47mg+wczeO88FhVpl4jfnt0xx/K7M108bV8ysxQ1FdKbZpJDvJ3NHSdzW/8C1rWwaPHHpCrtfLb3lYRglFRC9XLysm/kmbu7ees2HQsz7bq9XO2nryx7yseDixdck7vKXbUsGWmpo4m9OpPY2wHeV7rwjn65rzaSdXt5IiFfxTE5Kl+eUgutl0AAsLkCw6ytTT6bHp6ctFXJe153szwjGJaUl0RAzAA3AINtQvOp0eLUxEZITjy2x9YT0e2bZRlqqWORvO3eOprr+0LMtwi2PrgyTH6rEauLeeN2b9nqWsBfRTZXDUxPv8Abq3r1C811+o0tttVXp/qhM4MeTrinqr8clRQzaZo5BvB3EdI3OatSa4dZi94Vom+K3tKzvZDizCWgRVbBqODwNO0dO9vSFkROXht9p645/hb2pqK7x0splRA6NxY9pa5psQd4K3qXrkrFqTvEqNqzE7PNe0CAgICAgICAgICAgICAgICb7dxdogMKpsxANVMNAdcg5uoaX5yQOC+etNuI6jb8lf5X6xGnx7/AJpV3BcKlrZiAT+tI862vvJ53HgOK1dVqaaTFv8AtCtjxzlt/dOYtjsdIw01EALaPl3ku3Gx4n53DcOjO0+ivqbePqfpDvkzRjjkx/uq9JSy1D8rGukedTxPSST7StfJlxYKb2naIVK1m89O6yx7IxwgOrKpsfzWkE9539gKyrcVyZJ5dPTf5ytRpa1/EsF2Ds0yzSdIz/e32KNuJ3/0wf5aPeQfgeTT46LpOf73BT/5OnXpKf8ALz7wxqNjhI0vpKhkw/VJAPVcaX67KacWmk8uopNZ/hE6XfrjndW5I5YJLEOjkaelrh0g/atSLY81Om01lV2tS3tK24disWIsFPVgCX9HKLC5+x3RuKxs+lyaK85tP1r6wuUy1zRyZO/urlbSzUM9icr2nM1w3EcHDo3gjrC1MWXFrMO/eJ6TCtetsV/+9VixWJuJU3wmNtp4xaRo3kDf946LhZenvbQ6jwLz8E9p9lnJEZsfPHeFMW+oiAgICAgICAgICAgICAgILFsRholmMr/k4RnJO7Nvb3WLuwLJ4tqJx4vDp5rdFnS44m02ntCPxiufW1BcASXENjb829mN7b3PSSrWlw10mGIn0jeXPJect91hxuoGHU7aSI/GvGaV40IB0NjznUDmAPOszS4512edRk8sdoWcsxhpyV7+quYFg76uQRs0A1c7g1vP18wWrrNXXTUm0/SFbFinJblhYcTx2KiaaaiAuNHy6El242P5x6dw4LL0+iyaq3jant6VWb5oxRy41Rmlc9xc9xc47ySST2lblKVpHLWIiFKbTPWWC9IEHrTVL4nB8byxw4tNj/uOhc8mKmSNrRumtprO9ei30GKQ4k0QVQDZt0co0ueboPzdx61iZdNl0NvGwTvX1qu1yVzxy5O/uq+K4dJTSmOQWI1BG5w4OH/NLLX0+opqMfPHXf8Aj5KuTHOO3LK00sn4UpTG7zmEXaeLx/vax6bFY+Ss8P1MXr5Ld49lusxnx7T3hBbL4qaWoaTcMcckg6DxtztOvetHiGmjUYJiO/eFfBknHfr9WW12F/BqhwaLMf47Oax3t7Dfsso4bqZz4I5u8dJNTi5L9PVCrQcBAQEBAQEBAQEBAQEBAQW5/wCS4UANH1Ltfon7MjR+8sL+o4jMz2pH8rs/d4NvWXjsHSNMr6h/kQtvf5xB17AHd4XXjGWeSuGve87fR50lY3m8+iv4hWOqJXyu3vN7c3M0dQsFpYMVcOOKR2iFe95vbda8Tk/B1IyBhtPMM0jhvaNztf4R1ErF09Z1upnLbyV6Qt3nwcUUjvPdTF9AoiAgICAComN4Oy5ud+EqIk61FPr0uba/8QB7W9KwYj7Dq9o8l/4le/HxfOFbwHETTTslvoDZ3Sw6O+/sC1dZp4z4ZpP0VcN5peJSO3GHiKpLm+TKM45rny/Xr9ZVeE55yYOWe9ejrqqbX3j1b+Kn4VhkUx1fC7I48bXya9fxZVbTx9n198UdrRvDpk+8wRb1hUFuqQgICAgICAgICAgICAgWUTO3UW3b85Pg0I3Mj+5v8h71i8GjmnJknvMrmr6ctfk+0nxOEyOG+aS3YSGH1Nd3qMn3vEq1ntWE1+HTzMeqI2SpeVq4mkXAOc/UGYesBXeJZZxaa8x37fu4aevNkg2srDNVym+jXZB1M8X2gntU8Owxi09Y943/AHTqL82SUQrzgICAgICCw7CVhjq2t4SAsPX5TfWPWsvi+Ln082jvHVZ0ltr7e6LxykENRLGBYNebfROrfUQreky+Lgrf3iHLLXlvMLBtEeVw6kl3lvxZPYWk98Y71maL7rW5ccdp6ws5viw1sbJ/GUdZD83OOvKbetjU4l8Gqw5I/Q0/xY7VVJbikICAgICAgICAgICAgIM4PKb1j2rxk8k/omveFl8I3nTfRN956yuC/gz/APUrWs8/0Vs1Dy0ML3ZAbhtzlB58u7ie9asUrE820b+6rzTtssPg888/Zv8AaxZfGv6b6ws6P8RAVvykn03e0rTw/h1/SFe/ml4ro8iAgICAgkNnfOoPSs9oVXXf09/0l0wfiQ3NtgPhstvm9+Vq4cI/paumq/FlDmoflDM7sgNw25yg89t19T3q9GOsTzbRv7+rhzTy7LTsDuq/Rf61jcZ74v1/2W9J2t+iotW4pvqAgICAgICAgICAgICBe2vMomN42I7rb4Qm5nwSjc+L2HN/OsXg0zEZKT3iVzWRvNbfJpU+FRSYe+drTysb7ONz5Nx+be25w7l3vqslNdGKZ+GY6fq8RirOHmju8tjKnk6yO+512fvDT1hq98Vxzk0ttvTr+zzprcuSGvtLSGKqmbzvLh1P8ce23Yu2hyxl09Jj22/ZGevLkmEYrbiICAgICCd2JpTJWR6aMu8/VFh6yFncVyxj01veeixpa82SPk09oqkS1MzwbgvIHU3xR6gu2hxzj09Kz7PGa3NeZb+MYVFDR00gaRNL4xNzq0gutlvYb2bgq2l1V8uqyV3+GvydMmKtMdZ9Zbux3xdLWy8zMo6w1x/maq/FPj1GHH893TTfDS1lRC3FJ9QEBAQEBAQEBAQEBAQEFurfynC43jV0Dsruew8X3TGexYWP7jiFqT2v1hdv95gifZ57CTteZqV58WZht1gEO7bG/wBVdOL0mvJnr3rP8I0tt96T6q3PC+GQtOj2Ot1OadCO661aWrmx7x2mFWYmttlr2kiFbTR1kY8ZoyytHC28/VJJ6nX4LF0N/sme2nydp61XM0eLjjLX6qct5REBAQEBPmLnhzPwdRPmdpNP4rBxaLeLp0XLj9ULAz2+26uMdfJXrK9SPBxTae89lWwmhM8zIh+cQD0N3uPYAVsajNGHFOSfSFTHWbW2903t5Wh84ib5MLcv1jYuHYMo7FQ4PhmuHxLd7Tu76u0c/LHo2aofBsKYw6PqHZj9G+b3WsHauGP7/iM2jtSP+/y92+70+3uqK3VIQEBAQEBAQEBAQEBAQEFn2GrW5300nyc7SLfOsRbtFx2BY/FsNuSM9O9f7LelvG80ntKIqYpKKoIBs+N12ngRvaekEe0q9S1NXg39LQ42icV9k/tVSNqomV0I0ItK3i22l+sbj0WKzOH5Z0+SdLl+n+yznrGSviVRGzWOOpJNRmifo9v8w6R6wr2v0UaivTpaO0q+DN4duvaUjjuzQc34RR/GQu1yt1LOew3kdG8KrpOITE+DqOlo9fd2y6feOenZVlsx1jeFMQEAC5sNSdw4k8yiZiI3O/ZbsF2fZTt+FVvitbq2M7yeFxxPM3vWJqtdbPbwNN1n1n2XcWGKRz5OiDx/GX1cpe7Ro0Y3g1v3niVo6PSV0+Pljv6/NXzZZyW39FhwOAYfTOq5R8bIMsTTvsdR37z0NHOsvV5J1uojT08tfNKzir4NOe3eeyv4Hh7qyoawknMS+R3zb3eesk263LS1eeulwTaPSNoVsVJy32bu22JCaoyN8iIZBbdf8899m/VXDhWCceHnt3t1dNVki19o9FfWorCAgICAgICAgICAgICAg+seWkEGxBBBG8EagqLRFo2lMTt2XSuiGKUwmYB8JiFntG9w327dSOnMFgYbTw/UTjt5Ldl60Rnx80d4QezOOmkeQQXRP0e31ZgDxHNx7raGu0Uamm9fNHaVfBm8Odp7S3sf2bAb8IpTykLtcrdSzntxLejeFX0fEJ38HUdLf3dMuDpzY+sIfCMYmpXZon2B3tOrXdY+0K9qdJi1Fdrw4Y8tsc9FhdjVBV+cwGKTi9lzfpu3XvBWZ9j1mm/BtvHtKz4uLJ5o2Yfi/h7/ACMRAHM7Jf15fYvX2/W182E8DDPawMCw9mr8QDhzNy39WYqPt2tv0ri2R4GGO9mY2go6TzSnzP3co+49Z8Y9XiqPsGq1M/5i+0e0J8fFj6UjqrWJ4nLUvzSvLjwG4DoA4LVwabHgry442Vb5LZJ+KVhwPZ9kLfhVZ4jG6tjO9x4XHsbx4rM1evtlv4Gm6z6z7LOLDFI58nZEY7i8lbKDY28mNg1tf2uOl1e0elppMW3r3mXHLktlt/ZYH2wqly3HwqYa2/MH/wA+tx6FmRvxDU7/APrr/KzP3GPr5pUpfQKEiAgICAgICAgICAgICAgICDcwnE5KaQSRnUaEHc5vFpVfU6amopyXe8WScdt4WfE8KixFhqaSwk/SRGwJPszdO49ayNPqcmiv4Gfy+kreTHXNHPTv7IDCMYnonnLpr48br2JHON7XdK09TpMOqrvP0mFfHlvinp+yecMPxDW/wac772DXH3XeorMidbounnr/ACsfc5vlLQrdi6qPVgbK3gWOANup1vVdWsfGNPbz71n5w5W0l47dUFWUkkLssjHMda9iLG3A+1aOLLTLHNSd4cLVms7TDKioJZyRFG55GpsNw6eZRlz48Ub3tsUpa/aE7RbE1L9ZCyFvEuIcR2N07yFnZeMYK9Me9p+SxTSXnv0bramgw/5MfCZxudplaevcOy56VW8PWa7pf4Ke3q6c2HD5esq/X4hPXSjNd7jo1jRoOgD7VqYcGHSY/aPWZVr5L5Z6rJR0cWFM5aez6hwORgN8v/OLuwdOTkzZeIX8PF0p6z7rVa1wV5rd1RxCtfPI6SQ3c7uA4NHMAtzBhpgpFKR0hTvebW5pa66vAgICAgICAgICAgICAgICAgINigrZIHh8by1w5uI5iNxHQVyzYKZqzW8bw9UvNJ3qtQxSjxABtS3kZtwkboD2/Y7TmKxZ0+p0U82Geavt7LniY83S/SfdoYlsbUR+NHaZh3Flr2+iTr2Eq1g4vhv8N96z83O+lvHWOqKhrqmmNhJLF805mj912nqVucOmzxvMRLjF8lO27yxDEJahwfK/M4ANBsBoLm2gHOV0w6emGvJSNo7ove1p+Jnh+KTU+YxSZMwAOjToNRvBsoz6bFn2jJG+xTJanZ9fPU1RsXSzHm8Z4/dGgXiKafBH5apm2S/feUzh+xkzhnnc2Bg3lxBdbqvYdp7FSz8Xxx8OKOafk7U0lp63nZty45S0LSyiYHyHQyu1Hfvd1CzetcK6LUauefUztX/TDpOamKNscdfdU6qpfK4vkeXOO8nf/sOgLax46Y68tI2hTtabTvZ5Lo8iAgICAgICAgICAgICAgICAgICAg3cPxaen+Slc0c29v7puPUq+fSYM34lYl0plvTtKdh25lItLDFKOot+8epZtuC49/u7zCxGst+aIlmdpaN2rsNZfjbJ/pXn/DtVHSM0p+0YvWh+M9G3VmGsv05P9JT/AA3VW82aUfaMUdqPOo25nItFFFEOgFx9dh6l7pwXF3yWm0onWW/LGyArsSmnN5ZXP6CdB1NGg7lpYdLhwxtjrEK98lr+aWqu+7x+ggICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICC7eDXZSnxHl+WMg5Pk8uRwb5We97g38kIKbVRhr3tG5rnDuJCC1eDjZuHEJpWTF4DGBwyENNyba3BQVvFacRTyxtvlZI9ovvs1xaL9Ngg+YZAJZoo3Xs+RjTbfZzg0270HU8T2FwelIbPVPiLgSA+VjSQNCRdqIaf4t7P/8A6H/nZ/pQc+x6CGOolZTvzwh1mOvmzCw1uN+t0SwwembNUQxOvlfIxhtobOcAbd6CweEbZ2HD5444S8tdHmOchxvmI4AcyCpoCC5+DXZeDEXTicvHJiMtyODfLL73uD+qEFOkbYkcxI7kHrQUb55GRRtzPe4NaOk/YNSegFB038RsLoGNNfVEvdwzFjSeOVrPHIHOfVuQfJNg8OronPw6p8dvAuL234BwcM7b8/qKDmNVTvie6N7S17CWuB3gjQhB5ICAgICAgICAgICDqngO/rf7H/MRDmGIPHKyaj5R/vFEugeBFwNTUa/om+8gpW0PnVR6aX33IMcB86p/TRe+1EL14cHAT02v6N/vNRLmucc4QZIJLZnzym9PF74QXHw1+dw+h/mciIc8RIg6f4DvLq/ow+2VEOZz+U7rPtRK9eBqjD618hHycRt0OeQ0H93P3oIHb2vM+IVDi64a8xt5g2PxLDouHHrcUG14Mq50OIwgHSS8bhwIIJH8QaUG34XKQR4gSBblImPP0vGYfcCCloCAgICAgICAgICDqngO/rf7H/MRD7UeE+na9zfwdfK4i+Zmtja/kolYNh9sIsQlkZHS8iWNDibtNwTa2gCIca2h86qPTS++5EscB86p/TRe+1EO0bc7XRYfJGySl5Yva5wN2jLYgW1B50FWqfCdTvY5ow4DM0i+Zmlxb9VEuYhBJ7M+eU3p4vfCC4+GvzuH0P8AM5EQ54iRB0/wHeXV/Rh9sqIczn8p3WfaiXRvAifj6kf9NnvG/tCCj7StIrKq/wDeJvXI4oNrYhhOIUoH9s09g1PqBQWTw0uHw2IcRA31vfb2FBQEBAQEBAQEBAQEBB1TwG/1v9j/AJiIcyxD5WT6b/eKJX/wJec1Hom+8iFJ2h86qPTS++5EscB86p/TRe+1B0rwu4LU1M0Bhp5JQ1jwSxt7EuBAKIUH8Ua/+5T/ALhRKKqqd8T3MkYWPabOa4WIO+xCDd2Z88pvTxe+EHQfC1glTU1MToaeSRoisSxpIBzE29aIUY7JV/8Acp/3CiUKg6f4DvLq/ow+2VEOZz+U7rPtRK1eC/Fm01ezOQGytMRJ3AuIcz+JoH1kEj4SNkKhtVJUQwvlilObxGlxY+wDwQ3WxIJvu8ayDZ8F+yNQKltTNE6JkYJaHgtc97gWizTrYAk36rcUFc8IeLNq6+V7DmY20bSNxDL3I6MxcgraAgICAgICAgICAgmNntqajD8/IPY3lMubM0O8m+W193lFBESTZnEkgkkk9Z1KCT2f2inoHOfA5oLhlOZocLA34oI6pqTK9z3EFz3FxtzuNzpw1KD7TTGN7Xt8pjg4cdWm49iC3f0nYl/aRf4Y+9A/pOxL+0i/wx96CrYnXvqJXzSEF7zd1hYXsBoOxB50lS6J7JG2zMcHNvqLtNxp2ILb/SdiX9pF/hj70Hw+E3ETpykX+GPvQU4lBL7O7S1GHl5gc0coGh2ZubyM2Xq8ooIlzrm/Pr3oPiC24T4Rq+mYGB7JWgWHKtLiBzZmuBPbdB54z4Q66qYY3SMja4WIiaWlw4guLie4hBVkBAQEBAQEBAQEBAQSOG4zUwAMinkY0uvlabC5tcoJLa/Gah1TVQmd5i5aRuS/i5WvOUW5hYdyDS2ZlcyV72ktc2nqXNI3hzYJC0jpBAQbFBtDUSSsZO8zxPe1ro5LPBa4gGxIu12ujm2IKCJxGnEUskYNwyR7AecNcWg+pBM7LVQpWyVTgCA6OAAi9xI7lJ//ABRub+0QROL0XweeWL9R7mjpbfxD2tyntQbuzw8Wr/7WT34kGlg4/KIfSx+8EEptZC18jqiNoDXyvjkaNAydhObqD22ePrDgg1q0fkVL6So/yUGGEj4qr9C3/wB0KDDZ4fldN6eL32oPbHow/LVMaA2YnO0aBk7flW24B1w9vQ63BB8xAfklJ11HvtQfcDa1jJ6hzWvMLWBjXAFvKyuyscQdHBoD3WPEBB74ftFO+VjaiZ00L3NbJHIS5mRxAcQDowgG4LbWICCIrIRHI9gdmDXuaHfrBpIDu210HigICAgICAgICAgIMo946wgk9rPPar08vvuQfdmnASyFzczRTVJLb5cw5CS7cwBtfnQb+EVUFpXwUgZURM5WIvkdKBkI5RwaQBma05xcEeKdEFaJvqTc851J6boLJVYaTS00YmgYS1072vlYw5pbcn4rjf5NrP3ig8NqKawp5czHF8QY9zHh7TJB8XvbpcxiE9pQeWzvk1f/AGknvxINPBvOIPSx++1BIxVDRU1MMptFNI9jjwY8PcYpvqu3/Nc8cUGOMU7oqWCN4s9k1S1w5iORB6xzHiEGvhPyVX6Fv/uhQYbO+d03p4vfag9cEmaS+nkcBHNYZjujlbfkZeoElp+a9yDPGIXR01Kx7S1zXVLXA7w5sjQR3oPmH60VWOIdTu+rmkYT3vb3hBq4XLEHWlg5XMQB8Y6PLwPkg34dyDHEaTJNMxjXFscj27ibNa5zW3PUN55kGogICAgICAgICAgIPrTYgoNnFazl55ZsuXlHufa97ZiXWvx3oPlBV8kXnLfNFLHvtblY3R5uzNe3Qg+4VWmnmZKADkdctO5zdzmHoLSR2oNZ9rmwIbwBNyBwF7am3FBtYtXfCJXSZcoNg1oNw1jQGMZfTc1rRu4IPorvycwFt/jRK11/JOXI9traggMP1QgYfXciJhlvysTot9rZi12bdr5O7pQeNHPycjH2vke11t18pDrX7EHyrm5SR77Wzuc62+2Yl1vWg3sUxh1RFBG5ozRBwL76yXDGtJHOGxtbfjZBq0lXybJW5b8owMvfdZ7JL9PkW7UHzDqnkZY5bX5N7X23XyODrX4bkGuUEnjGMuqWQNc0B0TS0vvrITlAcRwdZjQTxIvxQa+GV5geXBrXtc0sex18r2O3tNiCNwII1BAPBBuR1lGxweyllc4G4bJMDEDvFwyNr3Ac2YXQelDtE+MS3YHOke6S+4Z3WLri2ouBoLcRx0CDAQfUBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBB//2Q=="
+              </p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2>Fall 2017</h2>
+          <p> I started working for the University of Utah Health Orthopedic Center (SLC, UT).
+            <ul>
+              <u>
+                <b>Description:</u>
+              </b>
+              <li>Facilitated communication and provided language services to Vietnamese healthcare patients with limited English
+                proficiency during consultations.</li>
+              <li>Scheduled patient appointments, contacted patients for rescheduling, and updated EPIC physician scheduling.
+              </li>
+              <li>Notified patients and their families of co-pays, deductibles, and co-insurance as appropriate and collected
+                co-payments.
+              </li>
+            </ul>
+            <img src="https://cdnapisec.kaltura.com/html5/html5lib/v2.54.1/modules/KalturaSupport/thumbnail.php/p/797802/uiconf_id/24839222/entry_id/0_ugny9qwf/height/480?"
+              alt="uofuothologo" style="width: 100%" />
+          </p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2>Summer 2017</h2>
+          <p>I did my Patient Experiement internship with the Utah Valley Hospital-Intermountain Healthcare (Provo, UT).
+            <ul>
+              <u>
+                <b>Description:</u>
+              </b>
+              <li>Rounded on patient and improving HCAHPS scores.</li>
+              <li>Leaded on evidence-based tactics, huddle boards, communication white boards etc.</li>
+              <li>Validated, coached and educated nurses and staff by using AIDET Communication technique, the Healing Commitments,
+                and Managing up.</li>
+            </ul>
 
-    <div id="Contact-Me" class="tabcontent">
-      <h3>Contact Me</h3>
-      <p></p>
-    </div>
+            <img src="https://lh3.googleusercontent.com/3Yw2JkV18FpfaCf6x5dnt-8xkR1kSjs-Ca7nApHJyVImFKvu4zfHo1bBRovfGPCL5CR1yLvxe75CgisJoKI7Ip7oGL1udz5k4CiY58-BEonM4jHXU5uclOzfCbEAovC3_nfrWtgahmZLsXkIE9ocvce9MYszY59_6e9vQM0JBeZP8BihYoMZFjtKf5vbCFQUzje6L0gxX1TVgfDwbQNpIsBPp_u6sDO3q21PM_vYrz1uuKkgPcvNMQ4obsdFZfLd4GaUqG4abtA4b1Xr6vNweGQNxPznTuOMqEjNThcuwokvqdjMYE-aI0-3ic8rmIJ70MGSwhecer3qEXbcBMXvvRA4_dQbq9bKUiOGO1mCekAzjl1d31saclcTbWNHM7kFcIGoArR93g3MmOCQe-Z5nAfCIjvAoaYcJGOAf5_qGff0O4MqNZxBoeYJ21JTY5zn3jAw_6f_tke6IYq6cGImSTNW6eNNP2PF18P0iIfFA4EIB6jqRAbQloyyh8ZiPWeR47cefWCWG77AaapNESsaUrqA1PlkFehGyxfWwnugiFIH8dAFRUKlfQFkShZZdV0e2JBgAr9OH-hK7rLiaJSOTnfdpx7PFQiIkXXl0_o7ynxwIk7NXUEJbgPMtaaWEbyQaB-wuidOo1vXDr1H6feVncQCsEwRT0k=s781-no"
+              alt="internshipphoto" style="width:90%" />
+          </p>
+        </div>
+      </div>
+
+      <div class="container right">
+        <div class="content">
+          <h2>Spring 2017</h2>
+          <p>
+            <ul>
+              <li>I graduated from University of Minnesota with B.S. in Health management. </li>
+              <li>I was a CSA Representative of Lion International Club.</li>
+              <li> I'm the NCAA Division II University of Minnesota-Crookston Women Tennis Player (2015-2017) (I attended in UMC's
+                Women Tennis Scholarship).</li>
+              <li>I was also a teaching Assistant at Academic Success Center, the recipient of the International Half Tuition
+                Waiver for Spring 2017,</li>
+              <li> and the alternative participant of the UMC Harvard Global Case Competition Team for 2017 - from Harvard Extension
+                School Business Society, Harvard University, Boston, Massachusetts.</li>
+              <img src="https://www.bookstore.umn.edu/images/system/product/42824.jpg" alt="uofmlogo" style="width:80%" />
+              <img src="https://lh3.googleusercontent.com/xT3UF5TgwjmwkAgxQFY6xR21-Pqsy63my6gMQIlv7GuXbULwZP4wJ5LCt3xudp4NpH7ShBG4Vj6MBc3CnQsr1XogwWiGmOzfNzKTNwZo_mpWD7uXDMAgJpiQxLX1vpV9-zbiJDa0BtXZTLRnG12OQeqSagNp-DUSSwubaVqfvxK0mb5vVU53ymMrL4mV-HDXKFcoSbRkMr-RrRNRaQ7LHd1NB6AivXIkFMNqrWhqGW6KKlrzSsIS86brsG55WlDEcAo0Qgz6JIkKdXZLkdhkjNnrygVGxRkNGTyLYG1SiMdj_isjjTxG2V0YM65_IVoGSUU9mUkGxXRnwWjfINtK105oPxL0UVcGMDc45kTfceRJkov7ftzmnaK3jf897QQNHmw9c-v5SbXV43X3tfuKEuxwHw1q0FVnBFFBDKipUNGjR7hFK6opkzZnTddZiP6qRUaHejj04Gf8iECGdtFWlc8YxI_ZQqp6TcM6iejfN1s22pAGGKrsgtOA9_uu90KJFwHzj5OFmRs1KMIE1mymJmFPa7DRnA4qdSVHknNRXSxdCquf3-lzMmxDrDVCl2ZgPGNl2NaVTsitswCb5sPXk8_mKnRdr3BCGHGxhFULX5KMTEcejJe5tkXt7e0rF66va2mXg43L3uBxMWNTNffRodpdfhqTFgI=w521-h781-no"
+                alt="tennisphoto" style="width:80%" />
+            </ul>
+          </p>
+        </div>
+
   </article>
-
+  <hr color="white">
+<h2><center>Contact Me</center></h2> 
 
 
   <footer></footer>
